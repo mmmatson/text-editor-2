@@ -6,6 +6,7 @@ In this repository I built a simple text editor that runs in the browser. The ap
 
 ## Usage
 
+![Screenshot of text editor](/assets/text-editor-screenshot.png)
 Click this link to use the application: https://salty-sierra-27425.herokuapp.com/ 
 
 Click the "install" button at the top left-hand corner of the page to use the application offline.
