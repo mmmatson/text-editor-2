@@ -2,6 +2,7 @@ import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import './database';
 import '../css/style.css';
+import { getDb } from './database';
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -31,3 +32,25 @@ if ('serviceWorker' in navigator) {
 } else {
   console.error('Service workers are not supported in this browser.');
 }
+
+const fetchText = async () => {
+  // Grab text data from IndexedDB
+  const result = await getDb();
+
+  let textItem = ` `;
+
+  // Loop through the data and create the textItem
+  for (let data of result) {
+    console.log(data);
+    textItem += `
+    <div id="${data.id}">
+      <p id="text-item">${data.text}</p>
+    </div>
+    `;
+  }
+
+  // Setting innerHTML as listItem variable
+  document.getElementById('text-group').innerHTML = textItem;
+};
+
+fetchText();
